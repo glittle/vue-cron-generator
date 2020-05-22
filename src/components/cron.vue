@@ -2,12 +2,12 @@
   <div>
     <el-row class="cron-row">
       <el-row :gutter="2">
-        <el-col :span="3">
+        <!-- <el-col :span="3">
           <el-input ref="input1" v-model="tag.second" :size="size" @focus="activeTabName='1'"/>
         </el-col>
         <el-col :span="4">
           <el-input ref="input2" v-model="tag.minute" :size="size" @focus="activeTabName='2'"/>
-        </el-col>
+        </el-col> -->
         <el-col :span="4">
           <el-input ref="input3" v-model="tag.hour" :size="size" @focus="activeTabName='3'"/>
         </el-col>
@@ -27,7 +27,7 @@
     </el-row>
     <el-row class="cron-row">
       <el-tabs v-model="activeTabName" type="border-card">
-        <el-tab-pane name="1">
+        <!-- <el-tab-pane name="1">
           <span slot="label">{{ $t('second.title') }}</span>
           <second
             :tag="tag.second"
@@ -40,7 +40,7 @@
             :tag="tag.minute"
             :size="size"
             @minute-change="changeMinute"/>
-        </el-tab-pane>
+        </el-tab-pane> -->
         <el-tab-pane name="3">
           <span slot="label">{{ $t('hour.title') }}</span>
           <hour
@@ -129,7 +129,7 @@ import {
   DAY_OF_WEEK_SYMBOL,
   DEFAULT_CRON_EXPRESSION
 } from '../constant/filed'
-import { loadArray } from '../translate'
+import { cases } from '../translate/array/en-US'
 
 export default {
   name: 'Cron',
@@ -163,7 +163,7 @@ export default {
         dayOfWeek: UNFIXED,
         year: EMPTY
       },
-      activeTabName: '1',
+      activeTabName: '3',
       timeUnits: [
         this.$t('second.title'), this.$t('minute.title'), this.$t('hour.title'), this.$t('dayOfMonth.title'),
         this.$t('month.title'), this.$t('dayOfWeek.title'), this.$t('year.title')
@@ -263,9 +263,9 @@ export default {
       }
     },
     loadConst() {
-      loadArray().then(array => {
-        this.bakCases = this.cases = array.cases
-      })
+      // loadArray().then(array => {
+      this.bakCases = this.cases = cases
+      // })
     }
   }
 }

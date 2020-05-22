@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import elementEnLocale from 'element-ui/lib/locale/lang/en'
-import elementZhCNLocale from 'element-ui/lib/locale/lang/zh-CN'
+// import elementZhCNLocale from 'element-ui/lib/locale/lang/zh-CN'
 import enUSLocale from './en-US'
-import zhCNLocale from './zh-CN'
+// import zhCNLocale from './zh-CN'
 import { getLocale } from '../util/tools'
 
 Vue.use(VueI18n)
@@ -13,10 +13,10 @@ const messages = {
       ...enUSLocale,
       ...elementEnLocale
     },
-    zh_CN: {
-      ...zhCNLocale,
-      ...elementZhCNLocale
-    }
+    // zh_CN: {
+    //   ...zhCNLocale,
+    //   ...elementZhCNLocale
+    // }
   },
 
   i18n = new VueI18n({

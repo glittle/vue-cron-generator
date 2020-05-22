@@ -74,7 +74,7 @@ import Range from '../config/custom/dayOfWeek/range'
 import Last from '../config/custom/dayOfWeek/last'
 import WeekDay from '../config/custom/dayOfWeek/weekDay'
 import watchTime from '../../mixins/watchTime'
-import { loadArray } from '../../translate'
+import { daysOfWeek } from '../../translate/array/en-US'
 
 // 31 days
 const LENGTH = 7, LOWER_LIMIT = 1, STEP = 1
@@ -140,9 +140,9 @@ export default {
   methods: {
     // 7 days like [ {label: 'Sunday', value: 1}...{label: 'Saturday', value: 7} ]
     initNums() {
-      loadArray().then(array => {
-        this.nums = array.daysOfWeek
-      })
+      // loadArray().then(array => {
+      this.nums = daysOfWeek
+      // })
     },
     // change type
     changeType(type) {
