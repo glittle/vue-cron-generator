@@ -165,11 +165,13 @@ export default {
       },
       activeTabName: '3',
       timeUnits: [
-        this.$t('second.title'), this.$t('minute.title'), this.$t('hour.title'), this.$t('dayOfMonth.title'),
+        // this.$t('second.title'), this.$t('minute.title'), 
+        this.$t('hour.title'), this.$t('dayOfMonth.title'),
         this.$t('month.title'), this.$t('dayOfWeek.title'), this.$t('year.title')
       ],
       vals: [
-        this.$t('second.val'), this.$t('minute.val'), this.$t('hour.val'), this.$t('dayOfMonth.val'),
+        // this.$t('second.val'), this.$t('minute.val'), 
+        this.$t('hour.val'), this.$t('dayOfMonth.val'),
         this.$t('month.val'), this.$t('dayOfWeek.val'), this.$t('year.val')
       ],
       symbols: [

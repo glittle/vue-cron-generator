@@ -1,22 +1,22 @@
 export const cases = [
-    {
-      label: 'Every second',
-      value: '* * * * * ?'
-    },
-    {
-      label: 'Every 30 minutes',
-      value: '0 */30 * * * ?'
-    },
-    {
-      label: 'Every hour at minutes 15, 30 and 45',
-      value: '0 15,30,45 * * * ?'
-    },
+    // {
+    //   label: 'Every second',
+    //   value: '* * * * * ?'
+    // },
+    // {
+    //   label: 'Every 30 minutes',
+    //   value: '0 */30 * * * ?'
+    // },
+    // {
+    //   label: 'Every hour at minutes 15, 30 and 45',
+    //   value: '0 15,30,45 * * * ?'
+    // },
     {
       label: 'Every even hour',
       value: '0 0 0/2 * * ?'
     },
     {
-      label: 'Every uneven hour',
+      label: 'Every odd hour',
       value: '0 0 1/2 * * ?'
     },
     {
