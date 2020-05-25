@@ -10,8 +10,10 @@ export default {
     and: ' To ',
     end: ' ',
     specified: 'Specified',
-    symbolTip: 'Symbol ',
-    valTip: 'Value ',
+    symbolTip: 'Symbols',
+    valTip: 'Values',
+    unit: 'Units',
+    reference: 'Reference for "cron"',
     nearest: ' Nearest',
     current: 'Current ',
     nth: ' The',
@@ -24,7 +26,7 @@ export default {
     reset: 'Reset',
     tagError: 'Tag Error ',
     numError: 'Number Error ',
-    use: 'Use',
+    use: 'Use Sample',
     inputPlaceholder: 'Cron Expression'
   },
   custom: {

@@ -7,7 +7,15 @@
       :time-unit="timeUnit"
       :symbol="symbol"
       @type-changed="changeType"
-      @tag-changed="changeTag"/>
+      @tag-changed="changeTag"
+    />
+    <unfixed
+      ref="unfixeds"
+      :type="type_"
+      :tag="tag_"
+      @type-changed="changeType"
+      @tag-changed="changeTag"
+    />
     <period
       ref="periods"
       :type="type_"
@@ -17,7 +25,8 @@
       :time-unit="timeUnit"
       :cycle-config="cycleConfig"
       @type-changed="changeType"
-      @tag-changed="changeTag"/>
+      @tag-changed="changeTag"
+    />
     <range
       ref="ranges"
       :type="type_"
@@ -26,7 +35,8 @@
       :size="size"
       :time-unit="timeUnit"
       @type-changed="changeType"
-      @tag-changed="changeTag"/>
+      @tag-changed="changeTag"
+    />
     <fixed
       ref="fixeds"
       :type="type_"
@@ -34,13 +44,9 @@
       :nums="nums"
       :size="size"
       @type-changed="changeType"
-      @tag-changed="changeTag"/>
-    <unfixed
-      ref="unfixeds"
-      :type="type_"
-      :tag="tag_"
-      @type-changed="changeType"
-      @tag-changed="changeTag"/>
+      @tag-changed="changeTag"
+    />
+
     <last
       ref="lasts"
       :type="type_"
@@ -50,7 +56,8 @@
       :time-unit="timeUnit"
       :target-time-unit="targetTimeUnit"
       @type-changed="changeType"
-      @tag-changed="changeTag"/>
+      @tag-changed="changeTag"
+    />
     <week-day
       ref="weekDays"
       :type="type_"
@@ -60,24 +67,31 @@
       :time-unit="timeUnit"
       :target-time-unit="targetTimeUnit"
       @type-changed="changeType"
-      @tag-changed="changeTag"/>
+      @tag-changed="changeTag"
+    />
   </el-row>
 </template>
 
 <script>
-import Every from '../config/common/every'
-import Fixed from '../config/common/fixed'
-import Unfixed from '../config/custom/unfixed'
-import { DAY_OF_WEEK_SYMBOL, DAYS_OF_WEEK, UNFIXED } from '../../constant/filed'
-import Period from '../config/custom/dayOfWeek/period'
-import Range from '../config/custom/dayOfWeek/range'
-import Last from '../config/custom/dayOfWeek/last'
-import WeekDay from '../config/custom/dayOfWeek/weekDay'
-import watchTime from '../../mixins/watchTime'
-import { daysOfWeek } from '../../translate/array/en-US'
+import Every from "../config/common/every";
+import Fixed from "../config/common/fixed";
+import Unfixed from "../config/custom/unfixed";
+import {
+  DAY_OF_WEEK_SYMBOL,
+  DAYS_OF_WEEK,
+  UNFIXED
+} from "../../constant/filed";
+import Period from "../config/custom/dayOfWeek/period";
+import Range from "../config/custom/dayOfWeek/range";
+import Last from "../config/custom/dayOfWeek/last";
+import WeekDay from "../config/custom/dayOfWeek/weekDay";
+import watchTime from "../../mixins/watchTime";
+import { daysOfWeek } from "../../translate/array/en-US";
 
 // 31 days
-const LENGTH = 7, LOWER_LIMIT = 1, STEP = 1
+const LENGTH = 7,
+  LOWER_LIMIT = 1,
+  STEP = 1;
 
 export default {
   components: {
@@ -93,7 +107,7 @@ export default {
   props: {
     size: {
       type: String,
-      default: 'mini'
+      default: "mini"
     },
     tag: {
       type: String,
@@ -105,10 +119,10 @@ export default {
       type_: UNFIXED,
       // expression of second
       tag_: null,
-      timeUnit: this.$t('dayOfWeek.timeUnit'),
-      targetTimeUnit: this.$t('month.title'),
+      timeUnit: this.$t("dayOfWeek.timeUnit"),
+      targetTimeUnit: this.$t("month.title"),
       symbol: DAY_OF_WEEK_SYMBOL,
-      val: this.$t('dayOfWeek.val'),
+      val: this.$t("dayOfWeek.val"),
       nums: [],
       startConfig: {
         min: LOWER_LIMIT,
@@ -135,43 +149,37 @@ export default {
         step: STEP,
         max: LENGTH
       }
-    }
+    };
   },
   methods: {
     // 7 days like [ {label: 'Sunday', value: 1}...{label: 'Saturday', value: 7} ]
     initNums() {
       // loadArray().then(array => {
-      this.nums = daysOfWeek
+      this.nums = daysOfWeek;
       // })
     },
     // change type
     changeType(type) {
-      this.changeSiblingType(type)
-      this.type_ = type
+      this.changeSiblingType(type);
+      this.type_ = type;
     },
     // change tag
     changeTag(tag) {
-      this.tag_ = tag
-      this.$emit('day-of-week-change', this.tag_)
+      this.tag_ = tag;
+      this.$emit("day-of-week-change", this.tag_);
     },
     changeSiblingType(type) {
-      this.$refs.everys.type_ =
-        this.$refs.periods.type_ =
-          this.$refs.ranges.type_ =
-            this.$refs.fixeds.type_ =
-              this.$refs.unfixeds.type_ =
-                this.$refs.lasts.type_ =
-                  this.$refs.weekDays.type_ = type
+      this.$refs.everys.type_ = this.$refs.periods.type_ = this.$refs.ranges.type_ = this.$refs.fixeds.type_ = this.$refs.unfixeds.type_ = this.$refs.lasts.type_ = this.$refs.weekDays.type_ = type;
     },
     resolveCustom(val) {
       for (let i = 0; i < DAYS_OF_WEEK.length; i++) {
-        const item = DAYS_OF_WEEK[i]
+        const item = DAYS_OF_WEEK[i];
         if (val.indexOf(item) !== -1) {
-          val = val.replace(item, i + 1)
+          val = val.replace(item, i + 1);
         }
       }
-      return val
+      return val;
     }
   }
-}
+};
 </script>

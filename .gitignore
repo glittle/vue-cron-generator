@@ -13,4 +13,4 @@ dist
 
 package-lock.json
 
-publish.cmd
+copyToManifast.cmd
